@@ -3,15 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { OrdersRoutingModule } from './orders-routing.module';
 import { OrderListComponent } from './order-list/order-list.component';
-import { MatTabsModule } from '@angular/material/tabs';
-import { OrderNewComponent } from './order-new/order-new.component'
+import { OrderNewComponent } from './order-new/order-new.component';
+import { AppSharedModule } from '../app-shared/app-shared.module';
 
 @NgModule({
-  declarations: [OrderListComponent, OrderNewComponent],
+  declarations: [ OrderListComponent, OrderNewComponent ],
   imports: [
     CommonModule,
     OrdersRoutingModule,
-    MatTabsModule
+    AppSharedModule
   ]
 })
 export class OrdersModule { }
