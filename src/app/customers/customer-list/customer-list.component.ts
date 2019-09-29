@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerCardComponent } from '../customer-card/customer-card.component';
 
 @Component({
   selector: 'app-customer-list',
