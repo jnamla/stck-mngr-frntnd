@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RepDialogComponent implements OnInit {
 
+  rep: string;
+  
   constructor() { }
 
   ngOnInit() {

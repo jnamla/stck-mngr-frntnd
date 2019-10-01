@@ -19,6 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [],
@@ -33,7 +34,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatDatepickerModule,
     MatInputModule,
     MatMomentDateModule,
-    MatDialogModule
+    MatDialogModule,
+    MatRadioModule
   ],
   exports: [
     MatButtonModule,
@@ -53,7 +55,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatFormFieldModule,
     MatStepperModule,
     MatAutocompleteModule,
-    MatDialogModule
+    MatDialogModule,
+    MatRadioModule
   ]
 })
 
