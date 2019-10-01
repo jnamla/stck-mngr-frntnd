@@ -1,0 +1,45 @@
+<mat-card>
+    <mat-card-title>New Customer</mat-card-title>
+    <mat-card-content>
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Email" [formControl]="emailFormCtrl" [errorStateMatcher]="matcher">
+            <mat-hint [align]="end">Hint: email@domain.com</mat-hint>
+            <mat-error *ngIf="emailFormCtrl.hasError('email') && !emailFormCtrl.hasError('required')"></mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="First name" [formControl]="firstNameFormCtrl" required>
+            <mat-error *ngIf="firstNameFormCtrl.hasError('required')"></mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Middle name" [formControl]="middleNameFormCtrl">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Last name" [formControl]="lastNameFormCtrl" required>
+            <mat-error *ngIf="lastNameFormCtrl.hasError('required')"></mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <textarea matInput placeholder="Address" [formControl]="addressFormCtrl" required></textarea>
+            <mat-error *ngIf="addressFormCtrl.hasError('required')"></mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <span matPrefix>+1</span>
+            <input matInput placeholder="Phone" [formControl]="phoneFormCtrl" required>
+            <mat-hint [align]="end">Hint: Only numbers</mat-hint>
+            <mat-error *ngIf="phoneFormCtrl.hasError('phone') && !phoneFormCtrl.hasError('required')"></mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Fax" [formControl]="faxFormCtrl">
+            <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
+
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="openUndoSnackBar()">SAVE</button>
+    </mat-card-actions>
+</mat-card>
