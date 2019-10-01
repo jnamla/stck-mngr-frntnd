@@ -9,7 +9,12 @@ import { RepDialogComponent } from './rep-dialog/rep-dialog.component';
 import { CustomerNewComponent } from './customer-new/customer-new.component';
 
 @NgModule({
-  declarations: [CustomerListComponent, CustomerCardComponent, CustomerNewComponent, RepDialogComponent],
+  declarations: [
+    CustomerListComponent,
+    CustomerCardComponent,
+    CustomerNewComponent,
+    RepDialogComponent
+  ],
   imports: [
     CommonModule,
     AppSharedModule,
