@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { RepDialogComponent } from '../rep-dialog/rep-dialog.component';
 
 @Component({
   selector: 'app-customer-new',
@@ -16,7 +18,7 @@ export class CustomerNewComponent implements OnInit {
   phoneFormCtrl: FormControl;
   faxFormCtrl: FormControl;
 
-  constructor() { }
+  constructor( private dialog: MatDialog ) { }
 
   ngOnInit() {
     this.emailFormCtrl = new FormControl('', [
@@ -39,6 +41,17 @@ export class CustomerNewComponent implements OnInit {
     this.faxFormCtrl = new FormControl('', [
       Validators.required
     ]);
+  }
+
+  openRepDialog() {
+    const dialogRef = this.dialog.open( RepDialogComponent, {
+      width: '250px',
+      data: {}
+    });
+    
+    dialogRef.afterClosed().subscribe( result => {
+      alert(`User chose ${result}`);
+    })
   }
 
 }

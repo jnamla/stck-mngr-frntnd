@@ -18,6 +18,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -31,7 +32,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatTabsModule,
     MatDatepickerModule,
     MatInputModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    MatDialogModule
   ],
   exports: [
     MatButtonModule,
@@ -50,7 +52,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
     MatFormFieldModule,
     MatStepperModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatDialogModule
   ]
 })
 
