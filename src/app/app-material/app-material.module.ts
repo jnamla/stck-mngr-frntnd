@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -23,12 +25,21 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     MatButtonModule,
     MatIconModule,
+    MatDialogModule,
+    MatRadioModule,
+    MatSnackBarModule,
+    MatTooltipModule,
+    MatTableModule,
+    MatSortModule,
+
     MatSidenavModule,
     MatToolbarModule,
     MatMenuModule,
@@ -36,14 +47,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatDatepickerModule,
     MatInputModule,
     MatMomentDateModule,
-    MatDialogModule,
-    MatRadioModule,
-    MatSnackBarModule,
-    MatTooltipModule
+    MatCheckboxModule
   ],
   exports: [
     MatButtonModule,
     MatIconModule,
+    
+    MatTableModule,
+    MatSortModule,
 
     MatSidenavModule,
     MatToolbarModule,
@@ -62,7 +73,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatDialogModule,
     MatRadioModule,
     MatSnackBarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatCheckboxModule
   ]
 })
 
