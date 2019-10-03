@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
-import { EMLINK } from 'constants';
+import { PageEvent } from '@angular/material/paginator';
 
 const ELEMENT_DATA = [
  {
@@ -27,42 +27,42 @@ const ELEMENT_DATA = [
 },
 {
   orderDate: new Date(),
-  orderNumber: 100,
+  orderNumber: 106,
   total: 29.90,
   description: '2 lbs of tuna.',
   isChecked: true
 },
 {
  orderDate: new Date(),
- orderNumber: 102,
+ orderNumber: 108,
  total: 66.90,
  description: '5 lbs of rice.',
  isChecked: false
 },
 {
  orderDate: new Date(),
- orderNumber: 105,
+ orderNumber: 110,
  total: 129.90,
  description: '2 lbs of salmon.',
  isChecked: true
 },
 {
   orderDate: new Date(),
-  orderNumber: 100,
+  orderNumber: 112,
   total: 29.90,
   description: '2 lbs of tuna.',
   isChecked: true
 },
 {
  orderDate: new Date(),
- orderNumber: 102,
+ orderNumber: 114,
  total: 66.90,
  description: '5 lbs of rice.',
  isChecked: false
 },
 {
  orderDate: new Date(),
- orderNumber: 105,
+ orderNumber: 116,
  total: 129.90,
  description: '2 lbs of salmon.',
  isChecked: true
@@ -78,12 +78,24 @@ export class OrderListComponent implements OnInit {
 
   displayedColumns: string[] = ['action', 'orderNumber', 'orderDate', 'description', 'total'];
   dataSource = new MatTableDataSource( ELEMENT_DATA );
+  pageSize = 10;
+  length = ELEMENT_DATA.length;
+  pageIndex = 0;
+  pageSizeOptns = [ 1, 2, 5, 10];
 
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatSort, { static: false }) sort: MatSort;
+
+  pageEvent: PageEvent;
 
   constructor() { }
 
+  loadData( pageIndex: number, pageSize: number ) {
+    this.dataSource = 
+    new MatTableDataSource(ELEMENT_DATA.slice(pageIndex, pageIndex + pageSize));
+  }
+
   ngOnInit() {
+    this.loadData(0, this.pageSize);
     this.dataSource.sort = this.sort;
   }
 
@@ -91,6 +103,13 @@ export class OrderListComponent implements OnInit {
     for(var elem of ELEMENT_DATA){
       elem.isChecked = !elem.isChecked;
     }
+  }
+
+  onPageChange( event: PageEvent): void {
+    this.pageSize = event.pageSize;
+    this.pageIndex = event.pageIndex;
+    this.length = Math.floor( ELEMENT_DATA.length / event.pageSize ) + 1;
+    this.loadData(this.pageIndex, this.pageSize);
   }
 
 }
